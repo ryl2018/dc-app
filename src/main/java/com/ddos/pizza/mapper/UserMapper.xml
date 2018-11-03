@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ddos.pizza.mapper.UserMapper">
+
+<resultMap type="com.ddos.pizza.domain.User" id="userMap">
+	<id column="user_id" property="userId"/>
+	<result column="user_name" property="userName"/>
+	<result column="user_pass" property="userPass"/>
+	<result column="user_age" property="userAge"/>
+	<result column="user_addr" property="userAddr"/>
+	<result column="user_img_name" property="userImgName"/>
+	<result column="user_phone" property="userPhone"/>
+	<result column="user_img_url" property="userImgUrl"/>
+	<result column="user_sex" property="userSex"/>
+	<result column="user_truename" property="userTrueName"/>
+	
+</resultMap>
+	<insert id="register" parameterType="com.ddos.pizza.domain.User">
+	<![CDATA[
+		INSERT INTO USER(user_id,user_img_name,user_name,user_pass,user_truename,user_phone,user_sex,user_img_url) VALUES (#{userId},#{userImgName},#{userName},#{userPass},#{userTrueName},#{userPhone},#{userSex},#{userImgUrl})
+	]]>
+	
+	</insert>
+
+	<select id="isExist" parameterType="string" resultMap="userMap">
+	<![CDATA[
+	 select * from user where user_name = #{userName}
+	]]>
+	
+	</select>
+	
+	<select id="login" parameterType="com.ddos.pizza.domain.User" resultMap="userMap" >
+  		<![CDATA[
+  		SELECT * FROM USER WHERE USER_NAME=#{userName} AND USER_PASS=#{userPass}
+  		]]>
+	</select>
+	<update id="update" parameterType="com.ddos.pizza.domain.User">
+	<![CDATA[
+	UPDATE USER SET USER_NAME=#{userName},USER_TRUENAME=#{userTrueName},USER_PHONE=#{userPhone},USER_ADDR=#{userAddr},USER_SEX=#{userSex},USER_AGE=#{userAge} WHERE USER_ID=#{userId}
+	]]>
+	</update>
+	
+</mapper>

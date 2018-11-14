@@ -2,16 +2,12 @@ package com.ddos.pizza.domain;
 
 import lombok.*;
 
-@Getter@Setter@ToString@AllArgsConstructor@NoArgsConstructor
+import java.util.UUID;
+@Getter@Setter@AllArgsConstructor@NoArgsConstructor@ToString
 public class User {
-	private String userId;
-	private String userName;
-	private String userTrueName;
-	private String userPass;
-	private String userAge;
-	private String userAddr;
-	private String userImgUrl;
-	private String userImgName;
-	private String userPhone;
-	private char userSex;
+    private UUID id;
+    private String name;
+    private String password;
+    private String phone;
+    private String trueName;
 }

@@ -3,40 +3,38 @@
 <mapper namespace="com.ddos.pizza.mapper.UserMapper">
 
 <resultMap type="com.ddos.pizza.domain.User" id="userMap">
-	<id column="user_id" property="userId"/>
-	<result column="user_name" property="userName"/>
-	<result column="user_pass" property="userPass"/>
-	<result column="user_age" property="userAge"/>
-	<result column="user_addr" property="userAddr"/>
-	<result column="user_img_name" property="userImgName"/>
-	<result column="user_phone" property="userPhone"/>
-	<result column="user_img_url" property="userImgUrl"/>
-	<result column="user_sex" property="userSex"/>
-	<result column="user_truename" property="userTrueName"/>
-	
+	<id column="user_id" property="id" javaType="java.util.UUID" jdbcType="VARCHAR" typeHandler="com.ddos.pizza.typehander.IdTypeHander"/>
+	<result column="user_name" property="name"/>
+	<result column="user_password" property="password"/>
+	<result column="user_phone" property="phone"/>
+	<result column="user_trueName" property="trueName"/>
+
 </resultMap>
+
 	<insert id="register" parameterType="com.ddos.pizza.domain.User">
+
 	<![CDATA[
-		INSERT INTO USER(user_id,user_img_name,user_name,user_pass,user_truename,user_phone,user_sex,user_img_url) VALUES (#{userId},#{userImgName},#{userName},#{userPass},#{userTrueName},#{userPhone},#{userSex},#{userImgUrl})
+		INSERT INTO USER(user_id,user_name,user_password,user_phone,user_trueName) VALUES (#{id,typeHandler=com.ddos.pizza.typehander.IdTypeHander},#{name},#{password},#{phone},#{trueName})
 	]]>
 	
 	</insert>
 
 	<select id="isExist" parameterType="string" resultMap="userMap">
 	<![CDATA[
-	 select * from user where user_name = #{userName}
+	 select * from user where user_phone = #{phone}
 	]]>
 	
 	</select>
 	
 	<select id="login" parameterType="com.ddos.pizza.domain.User" resultMap="userMap" >
   		<![CDATA[
-  		SELECT * FROM USER WHERE USER_NAME=#{userName} AND USER_PASS=#{userPass}
+  		SELECT * FROM USER WHERE user_phone=#{phone} AND USER_PASS=#{password}
   		]]>
 	</select>
+
 	<update id="update" parameterType="com.ddos.pizza.domain.User">
 	<![CDATA[
-	UPDATE USER SET USER_NAME=#{userName},USER_TRUENAME=#{userTrueName},USER_PHONE=#{userPhone},USER_ADDR=#{userAddr},USER_SEX=#{userSex},USER_AGE=#{userAge} WHERE USER_ID=#{userId}
+	UPDATE USER SET USER_NAME=#{name},USER_TRUENAME=#{trueName},USER_PHONE=#{phone}, WHERE USER_ID=#{id,typeHandler=com.ddos.pizza.typehander.IdTypeHander}
 	]]>
 	</update>
 	

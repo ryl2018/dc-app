@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    name: pizza
+    url: jdbc:mysql://192.168.196.128:3306/pizza
+    username: scott
+    password: ddos
+    driver-class-name: com.mysql.jdbc.Driver
+mybatis:
+  typeAliasesPackage: com.ddos.pizza.mapper
+  mapperLocations: classpath:com.ddos.pizza.mapper/*.xml

@@ -1,8 +1,8 @@
 spring:
   datasource:
     name: pizza
-    url: jdbc:mysql://192.168.196.128:3306/pizza
-    username: scott
+    url: jdbc:mysql://192.168.196.129:3306/pizza
+    username: root
     password: ddos
     driver-class-name: com.mysql.jdbc.Driver
 mybatis:

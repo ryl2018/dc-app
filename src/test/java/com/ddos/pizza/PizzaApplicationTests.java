@@ -26,11 +26,11 @@ public class PizzaApplicationTests<readObject> {
         u.setId(id);
 //        System.out.print(id);
         u.setName("ddsados");
-        u.setPassword("1ada23");
+        u.setPassword("12345678");
         u.setPhone("9922399");
         u.setTrueName("Sasy");
-        usersMapper.register(u);
-//        System.out.print(u);
+        User a = usersMapper.isExist("2");
+        System.out.print(a);
 //        String test = newOrder();
 //        System.out.println(test);
 //        long o = string2Order(test);

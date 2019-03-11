@@ -12,6 +12,9 @@ public interface IUserService {
      * @param user
      */
     void register(User user);
+    /**
+    *判断name是否可用
+    */
     public User isExist(String userName);
     User login(User user);
     void update(User user);

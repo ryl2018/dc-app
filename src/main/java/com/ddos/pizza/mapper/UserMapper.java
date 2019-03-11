@@ -17,6 +17,12 @@ public interface UserMapper {
 	 * @return
 	 */
 	User isExist(String userName);
+
+	/**
+	 * 登录
+	 * @param user
+	 * @return
+	 */
 	User login(User user);
 	void update(User user);
 }

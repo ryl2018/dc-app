@@ -7,8 +7,12 @@ import com.ddos.pizza.domain.User;
  * @date 2019/3/5 19:28
  */
 public interface IUserService {
+    /**
+     * 用户注册
+     * @param user
+     */
     void register(User user);
-    User isExist(String userName);
+    public User isExist(String userName);
     User login(User user);
     void update(User user);
 }

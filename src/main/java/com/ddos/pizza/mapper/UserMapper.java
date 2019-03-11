@@ -9,8 +9,14 @@ public interface UserMapper {
      * 用户注册
      * @param user
      */
-	public void register(User user);
-	public User isExist(String userName);
-	public User login(User user);
-	public void update(User user);
+	void register(User user);
+
+	/**
+	 * 检查名称是否可用
+	 * @param userName
+	 * @return
+	 */
+	User isExist(String userName);
+	User login(User user);
+	void update(User user);
 }

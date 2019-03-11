@@ -8,7 +8,7 @@ import com.ddos.pizza.domain.User;
  */
 public interface IUserService {
     void register(User user);
-    User isExist(String userName);
+    public User isExist(String userName);
     User login(User user);
     void update(User user);
 }

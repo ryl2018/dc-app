@@ -5,8 +5,18 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface UserMapper {
-	public void register(User user);
-	public User isExist(String userName);
-	public User login(User user);
-	public void update(User user);
+    /**
+     * 用户注册
+     * @param user
+     */
+	void register(User user);
+
+	/**
+	 * 检查名称是否可用
+	 * @param userName
+	 * @return
+	 */
+	User isExist(String userName);
+	User login(User user);
+	void update(User user);
 }

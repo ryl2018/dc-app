@@ -5,6 +5,10 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface UserMapper {
+    /**
+     * 用户注册
+     * @param user
+     */
 	public void register(User user);
 	public User isExist(String userName);
 	public User login(User user);

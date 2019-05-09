@@ -6,13 +6,17 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.*;
+import java.util.Map;
 import java.util.UUID;
 
+
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(classes = PizzaApplication.class)
 public class PizzaApplicationTests<readObject> {
 
     private static long oldOrder = 0;
@@ -25,11 +29,12 @@ public class PizzaApplicationTests<readObject> {
         UUID id = UUID.randomUUID();
         u.setId(id);
 //        System.out.print(id);
-        u.setName("ddsados");
+        u.setName("2");
         u.setPassword("12345678");
         u.setPhone("9922399");
         u.setTrueName("Sasy");
-        User a = usersMapper.isExist("2");
+//        usersMapper.register(u);
+        Map a = usersMapper.isExist("9922399");
         System.out.print(a);
 //        String test = newOrder();
 //        System.out.println(test);

@@ -21,7 +21,7 @@
 
 	<select id="isExist" parameterType="string" resultMap="userMap">
 	<![CDATA[
-	 select * from user where user_phone = #{phone}
+	 select * from USER where user_phone = #{phone}
 	]]>
 	
 	</select>

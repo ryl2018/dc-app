@@ -6,10 +6,12 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.annotation.Resource;
 import java.io.*;
 import java.util.Map;
 import java.util.UUID;
@@ -17,25 +19,36 @@ import java.util.UUID;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = PizzaApplication.class)
-public class PizzaApplicationTests<readObject> {
+public class PizzaApplicationTests{
 
     private static long oldOrder = 0;
     private static final String chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    @Autowired
-    private UserMapper usersMapper;
+//    @Autowired
+//    private UserMapper usersMapper;
+    @Resource
+    private ValueOperations<String, String> valueOperations;
+    @Test
+    public void redisTest(){
+        System.out.println(valueOperations);
+//        valueOperations.set("test","xxxx");
+        String r=valueOperations.get("test");
+        System.out.println(r);
+    }
+
     @Test
     public void contextLoads() throws IOException {
-        User u = new User();
-        UUID id = UUID.randomUUID();
-        u.setId(id);
+//        User u = new User();
+//        UUID id = UUID.randomUUID();
+//        UUID id = UUID.randomUUID();
+//        u.setId(id);
 //        System.out.print(id);
-        u.setName("2");
-        u.setPassword("12345678");
-        u.setPhone("9922399");
-        u.setTrueName("Sasy");
+//        u.setName("2");
+//        u.setPassword("12345678");
+//        u.setPhone("9922399");
+//        u.setTrueName("Sasy");
 //        usersMapper.register(u);
-        Map a = usersMapper.isExist("9922399");
-        System.out.print(a);
+//        Map a = usersMapper.isExist("9922399");
+//        System.out.print(a);
 //        String test = newOrder();
 //        System.out.println(test);
 //        long o = string2Order(test);

@@ -10,6 +10,15 @@ public class User implements Serializable {
     private String password;
     private String phone;
     private String trueName;
+    private String token;
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
 
     public UUID getId() {
         return id;
@@ -50,4 +59,5 @@ public class User implements Serializable {
     public void setTrueName(String trueName) {
         this.trueName = trueName;
     }
+
 }

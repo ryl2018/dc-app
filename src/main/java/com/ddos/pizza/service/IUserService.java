@@ -49,4 +49,6 @@ public interface IUserService {
      * @return
      */
     void restPassword(User user);
+
+    void logout(String token);
 }

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @RestController
@@ -77,5 +78,16 @@ public class UserController {
             return Result.response(Constant.RES_LOGIN_FAIL,e.getMessage(),null);
         }
         return Result.success("密码修改成功",resUser);
+    }
+
+    @RequestMapping(value = "/logout",method = RequestMethod.GET)
+    public Result logout(HttpServletRequest request){
+        String token = request.getHeader("pizza-Token");
+        if (token!=null){
+            iUserService.logout(token);
+        }else {
+            return Result.response(Constant.RES_LOGIN_FAIL,"token为空",null);
+        }
+        return Result.success("登出成功");
     }
 }

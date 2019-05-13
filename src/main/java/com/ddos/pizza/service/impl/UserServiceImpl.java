@@ -95,4 +95,11 @@ public class UserServiceImpl implements IUserService {
         user.setPassword(Md5.string2md5s(user.getPassword()));
         userMapper.restPassword(user);
     }
+
+    @Override
+    public void logout(String token) {
+        Assert.notNull(token, "token must not null");
+        valueOperations.getOperations().delete(token);
+        session.removeAttribute("CONTEXT_USER_ID");
+    }
 }

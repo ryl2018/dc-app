@@ -10,7 +10,8 @@ public class IntercepterConfig extends WebMvcConfigurerAdapter {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new PizzaHandlerInterceptor())
                 .addPathPatterns("/**")
-                .excludePathPatterns("/user/register","/user/login","/user/isExistByUserPhone/*","/user/restPassword");
+                .excludePathPatterns("/user/register","/user/login","/user/isExistByUserPhone/*",
+                        "/user/restPassword","/user/logout");
         super.addInterceptors(registry);
     }
 }

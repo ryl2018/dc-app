@@ -23,7 +23,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public User register(@RequestBody User user, HttpServletResponse response) {
+    public User register(@RequestBody User user) {
         return iUserService.register(user);
     }
 

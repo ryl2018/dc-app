@@ -19,4 +19,12 @@ public class Constant {
     public static final String RES_USER_PHONE_REPEAT_MESSAGE = "手机号已经存在";
 
     public static final int RES_LOGIN_FAIL = 50004;
+    public static final String RES_TYPE_ADD_MESSAGE = "添加分组成功";
+    public static final String RES_TYPE_DELETE_MESSAGE = "删除分组成功";
+    public static final String RES_TYPE_UPDATE_MESSAGE = "修改分组成功";
+
+    public static final String RES_DISH_ADD_MESSAGE = "添加商品成功";
+    public static final String RES_DISH_DELETE_MESSAGE = "删除商品成功";
+    public static final String RES_DISH_UPDATE_MESSAGE = "修改商品成功";
+
 }
